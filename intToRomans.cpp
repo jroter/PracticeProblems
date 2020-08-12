@@ -10,18 +10,19 @@ int main(){
     cout << "Enter a number: ";
     cin >> num;
     //Handles numbers over the upper and lower bounds
-    if(num >= 4000 || num <= 0){
+    while(num >= 4000 || num <= 0){
         cout << "Enter a number: ";
         cin >> num;
     }
     //prints the amount of 1000's as M
-    else if(num >= 1000){
+    if(num >= 1000){
         count = num/1000;
         for(int i {0}; i < count; i++){
             romans += 'M';
         }
-        //stepping into the hundredth place
-        num %= 1000;
+    }  
+    //stepping into the hundredths place
+    num %= 1000;
     if(num >= 100){
         count = num/100;
         //handles upperbound 
@@ -61,26 +62,27 @@ int main(){
         }else if(count >= 1){
             for(int i {0}; i < count; i++){
                 romans += 'X';
-            }
+            } 
         }
-        //stepping into everyting below 10
-        num %= 10;
+        //stepping into everything below 10
+        num %= 10; 
+    }if(num >= 1){
         count = num;
         //handle upperbound
-    }if(count == 9){
-        romans += "IX";
-    }else if(count >= 5){
-        romans += "V";
-        for(int i {0}; i < count - 5; i++){
-            romans += "I";
-        }
-    }else if(count == 4){
-        romans += "IV";
-    }else if(count >= 1){
-        for(int i {0}; i < count; i++){
-            romans += "I";
+        if(count == 9){
+            romans += "IX";
+        }else if(count >= 5){
+            romans += "V";
+            for(int i {0}; i < count - 5; i++){
+                romans += "I";
+            }
+        }else if(count == 4){
+            romans += "IV";
+        }else if(count >= 1){
+            for(int i {0}; i < count; i++){
+                romans += "I";
+            }
         }
     }
-        cout << "Your number in Roman Numeral: " << romans << endl;
-    }
+    cout << "Roman Numeral: " << romans << endl;
 }
