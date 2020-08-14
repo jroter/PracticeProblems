@@ -12,13 +12,13 @@ bool isPalindrome(string str){
         if(str.at(i) != str.at(j)){
             cout << "False! " <<  str << " isn't a palindrome" << endl;
             return isPalindrome;
-        }else{
-            isPalindrome = true;
-            cout << "True! " << str << " is a palindrome" << endl;
-            return isPalindrome;
         }
+        i++;
+        j--;
     }
-    return -1;
+    isPalindrome = true;
+    cout << "True! " << str << " is a palindrome" << endl;
+    return isPalindrome;
 }
 
 int main(){
